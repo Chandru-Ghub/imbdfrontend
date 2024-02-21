@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from './components/Login';
+import Register from './components/Register';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import MovieData from './components/MovieData';
+import { useEffect } from 'react';
+import { authAxios } from './axiosInterceptor/AxiosInterceptor';
+import { useDispatch } from 'react-redux';
+import { movieDetails } from './redux/MoviesSlice';
+import WishList from './components/WishList';
+import Dashboard from './components/Dashboard';
 
 function App() {
+
+  const dispatch = useDispatch()
+  const access = localStorage.getItem('imdbtoken') 
+  useEffect(()=>{
+    authAxios.get('/movies')
+    .then(res => {
+      console.log(res)
+        dispatch(movieDetails(res.data))
+    })
+    .catch(err => {
+      console.log(err)
+    })
+},[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element = {access?<Home/>:<Login/>} />
+              <Route path='/movies/:id' element = {<MovieData/>} />
+              <Route path='/login' element = {<Login/>} />
+              <Route path='/register' element = {<Register/>} />
+              <Route path='/wishlist' element = {<WishList/>} />
+              <Route path='/dash' element = {<Dashboard/>} />
+            </Routes>
+          </BrowserRouter>
     </div>
   );
 }

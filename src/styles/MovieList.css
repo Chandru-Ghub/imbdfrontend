@@ -1,0 +1,79 @@
+.home{
+    background: rgb(0, 0, 0);
+}
+.movielist{
+    background: rgb(0, 0, 0);
+}
+.cardContainer{
+    display: flex;
+    gap: 30px;
+    row-gap: 50px;
+    flex-wrap: wrap;
+    color: white;
+    padding-left: 10px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+}
+.wishicon{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    column-gap: 5px;
+    background: transparent;
+    color: yellow;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+.wishicon:hover{
+    background-color: rgba(18, 18, 18, 0.737);
+} */
+.card{
+    background: rgb(17, 16, 16);
+    padding: 2px;
+ 
+}
+.cardtitle{
+    color: rgb(255, 255, 255);
+    /* background: green; */
+    display: flex;
+    padding: 18px; 
+}
+.cardimg{
+    width: 240px;
+    height: 300px;
+    object-fit: cover;
+}
+.topcast{
+
+        border-left: 5px solid rgb(254, 254, 12);
+        display: inline-flex;
+        align-items: center;
+        color: white;
+        font-size: 25px;
+        font-weight: 600;
+        padding-left: 30px;
+        >span{
+            font-size: 35px;
+        }
+}
+.show{
+    color: rgb(176, 176, 176);
+}
+.topcard{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 20px 0;
+    padding-left: 50px;
+}
+.wishList{
+    background: black;
+}
+.glass{
+    font-size: 70px;
+    color: rgb(125, 125, 125);
+    margin: 80px 0;
+}
